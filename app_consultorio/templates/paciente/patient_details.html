@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block  body %}
+
+<div class="container">
+    <h4 class="mt-1 title">Detalles del paciente</h4>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="content"><strong>Nombre:</strong> {{ patient.name }}</p>
+            <p class="content"><strong>Edad:</strong> {{ patient.age }}</p>
+            <p class="content"><strong>Género:</strong> {{ patient.gender }}</p>
+            <p class="content"><strong>Dirección:</strong> {{ patient.address }}</p>
+        </div>
+    </div>
+    <h4 class="mt-1 title">Historial de salud</h4>
+    <hr>
+    <ul class="list-unstyled">
+        {% for history in health_history %}
+            <li class="content">
+                <strong>Enfermedad:</strong> {{ history.disease }}<br>
+                <strong>Fecha del diagnóstico:</strong> {{ history.diagnosis_date }}
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{{ url_for('views.pacientes') }}" class="btn btn-secondary">Salir</a> 
+</div>
+
+{% endblock %}

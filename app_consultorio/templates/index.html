@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<title>Consultorio Medico</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_query.css') }}">
+</head>
+	
+<body>
+	<header id="header">
+		<nav class="navbar bg-body-tertiary">
+			<div class="container-fluid">
+			<a>Consultorio de {{ g.user.username}}</a>
+			<br>
+			<form class="d-flex" role="search">
+				<a href="{{url_for('auth.logout')}}" class="btn btn-danger">Cerrar Seccion</a>
+			</form>
+			</div>
+		</nav>
+		<nav id="nav">
+			<div class="btn-group">
+				<a href="{{url_for('views.pacientes')}}" class="btn btn-primary">PACIENTES</a>
+				<a href="{{url_for('views.calendario')}}" class="btn btn-info">CALENDARIO</a>
+				<a href="{{url_for('views.mostrar_turnos')}}" class="btn btn-primary">TURNOS</a>
+			</div>
+		</nav>
+	</header>
+	
+	<section>
+		
+			{% block body %} 
+			{% endblock %}
+		
+	</section>
+	
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

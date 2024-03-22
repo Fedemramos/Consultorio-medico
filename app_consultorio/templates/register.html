@@ -1,0 +1,25 @@
+{% extends "inside.html" %}
+{% block login %} 
+    
+   
+<div class="container">
+    <div class="login-form">
+        <h3 class="text-center mb-4">Registro de usuario</h3>
+        <form action="/register" method="POST"> <!-- Añadido method="POST" aquí -->
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" value="Registrar usuario" class="btn btn-primary btn-block">Registrarme</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+{% block  body %}
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <h4>PACIENTES</h3>
+    <form class="d-flex" role="search">
+        <a href="{{url_for('views.create_pacient')}}" class="btn btn-primary mr-2">Agregar</a> <!-- Agregado mr-2 para espacio entre botones -->
+        <input class="form-control me-2" type="search" placeholder="Nombre paciente" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+    </div>
+</nav>
+<hr>
+<br>
+<article id="box">
+    {% for patient in patients %}
+    {% if g.user.id == patient.doctor_id %}
+    <div class="card mb-3" style="max-width: 600px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="foto paciente">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body rounded">
+                    <h5 class="card-title text-left">{{ patient.name }}</h5>
+                    {% if patient.health_history %}
+                    <p class="card-text text-left">Último diagnóstico: {{ patient.health_history.disease }}</p>
+                    <p class="card-text text-left"><small class="text-body-secondary">Fecha del diagnóstico: {{ patient.health_history.diagnosis_date }}</small></p>
+                    {% else %}
+                        <p class="card-text text-left">No hay historial de salud disponible para este paciente.</p>
+                    {% endif %}
+                    <div class="btn-group" role="group">
+                        <a href="{{ url_for('views.patient_details', patient_id=patient.id) }}" class="btn btn-primary">Detalles</a>
+                        <a href="{{ url_for('views.edit', patient_id=patient.id) }}" class="btn btn-warning">Editar</a>
+                        
+                        <span style="margin-left: 20px;"></span>
+                        <!-- Formulario de eliminación -->
+                        <form action="{{ url_for('views.delete', patient_id=patient.id) }}" method="POST" style="display: inline;">
+                            <input type="submit" value="Borrar" class="btn btn-danger">
+                        </form>
+                        <!-- Fin del formulario de eliminación -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</article>
+
+
+{% endblock %}

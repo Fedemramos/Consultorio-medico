@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block  body %}
+    <h2>Reservar turno</h2>
+    <hr>
+    <form action="/reservar_turno" method="POST">
+        <label for="nombre_paciente">Nombre del Paciente:</label>
+        <input type="text" name="nombre_paciente"><br>
+        
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha"><br>
+        
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora"><br>
+        
+        <input type="submit" value="Reservar">
+        
+    </form>
+    <br>
+    <a href="{{ url_for('views.mostrar_turnos') }}" class="btn btn-secondary">Cancelar</a> 
+{% endblock %}

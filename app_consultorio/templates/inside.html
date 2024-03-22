@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<title>Consultorio Medico</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_query.css') }}">
+</head>
+	
+<body class="login_box">
+	<section>
+		<nav id="nav">
+			<div class="btn-group">
+				<a href="{{url_for('auth.login')}}" class="btn btn-primary mr-1">INICIO SECCION</a>
+				<a href="{{url_for('auth.register')}}" class="btn btn-info">REGISTRARSE</a>
+			</div>
+		</nav>
+        {% block login %} 
+		{% endblock %}
+		<br>
+		{% for message in get_flashed_messages() %}
+			<p class="alert alert-danger" role = "alert"> {{message}} </p>
+		{% endfor %}
+    </section>
+  </body>
+</html>
+

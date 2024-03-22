@@ -1,0 +1,92 @@
+.login_box{
+	background-image: url("/static/image/background_2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 40%; /* Establecemos un ancho del 60% del viewport */
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+	max-width: 350px;
+	margin: auto;
+	margin-top: 50px;
+  }
+
+/* cuerpo*/
+
+body{
+	background-image: url("/static/image/background_2.jpg");
+	background-size: cover; /* Para cubrir toda el área del cuerpo */
+	background-repeat: no-repeat; /* Evita la repetición de la imagen */
+	height: 100%;
+    margin: 40px;
+}
+
+#header {
+    text-align: left; /* Centra el contenido horizontalmente */
+    margin-left: 18%; /* Añade espacio alrededor del encabezado */
+    
+}
+
+/* Cuerpo del html */
+
+hr{
+	border: 2px solid rgb(216, 216, 216);
+}
+
+body section{
+	border-radius: 20px;
+	background-color:rgba(243, 243, 243, 0.962);
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 70%; /* Ajusta este valor según tus necesidades */
+	padding: 40px;
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Cuerpo del html-pacientes */
+
+
+.title {
+	text-align: left;
+	font-size: 24px;
+}
+.content {
+	text-align: center;
+	font-size: 18px;
+}
+
+/* Cuerpo del html editpaciente */
+
+
+h4 {
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+label {
+	font-weight: 600;
+}
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+}
+
+.btn-success,
+.btn-secondary{
+	width: 48%;
+	margin-top: 20px;
+	font-size: 18px;
+}
+

@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block  body %}
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <h3>TURNOS</h3>
+          <form class="d-flex" role="search">
+            <a href="{{url_for('views.reservar_turno')}}" class="btn btn-warning">RESERVAR</a>
+          </form>
+        </div>
+      </nav>
+    <hr>
+    <ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id Turno</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Médico</th>
+                    <th scope="col">Paciente</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for turno in turnos_guardados %}
+                <tr>
+                    <td>{{ turno.id }}</td>
+                    <td>{{ turno.fecha }}</td>
+                    <td>{{ turno.hora }}</td>
+                    <td>{{ turno.medico.username }}</td>
+                    <td>{{ turno.paciente.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ul>
+</body>
+{% endblock %}
